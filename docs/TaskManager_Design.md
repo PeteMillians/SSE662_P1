@@ -10,6 +10,8 @@ This document outlines the design of the Task Manager, which receives input from
 - Ability to respond to the frontend
 - Custom methods to interact with the array of Tasks
 
+## Public Methods
+
 ## Structure
 ```mermaid  
 graph LR
