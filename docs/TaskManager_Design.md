@@ -11,7 +11,7 @@ This document outlines the design of the Task Manager, which receives input from
 - Custom methods to interact with the array of Tasks
 
 ## Structure
-```mermaid
+```mermaid  
 graph LR
     
     A(Command Entry point) --> TaskManager
