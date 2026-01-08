@@ -1,6 +1,6 @@
 # Main Design
 
-This document outlines the design of the *main.py* file, serving as the executable file to run the To-Do List Manager. 
+This document outlines the design of the *main.py* file, serving as the executable file to run the To-Do List Manager. This file will contain the functions to operate the command-line interface, which will receive user functions and communicate with the Task Manager.
 
 ## Requirements
 - Add Task: Allow users to add new tasks with a brief description.
