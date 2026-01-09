@@ -33,6 +33,7 @@ func CommandLine(manager *taskManager.TaskManager) {
 		input = strings.TrimSpace(input)
 
 		processCommand(strings.TrimSpace(input), manager)
+
 	}
 
 }
@@ -79,6 +80,12 @@ func processCommand(input string, manager *taskManager.TaskManager) {
 		var number int
 		fmt.Print("Task Number: ")
 		fmt.Scanln(&number)
+
+		// Check that the number exists
+		if !ValidNumber(number, manager) {
+			fmt.Println("Invalid Task Number...")
+			break
+		}
 		manager.Mark(number)
 
 	case "D":
@@ -92,6 +99,12 @@ func processCommand(input string, manager *taskManager.TaskManager) {
 		var number int
 		fmt.Print("Task Number: ")
 		fmt.Scanln(&number)
+
+		// Check that the number exists
+		if !ValidNumber(number, manager) {
+			fmt.Println("Invalid Task Number...")
+			break
+		}
 		manager.Delete(number)
 
 	case "H":
@@ -167,4 +180,18 @@ func printTasks(manager *taskManager.TaskManager) {
 	for _, str := range manager.List() {
 		fmt.Println(str)
 	}
+}
+
+func ValidNumber(number int, manager *taskManager.TaskManager) bool {
+	/*
+		Checks that the given number is a Task Number contained in the TaskManager
+
+		Arguments:
+			number (int): the Task Number we are looking for
+			manager (TaskManager): the TaskManager containing the current Tasks
+		Returns:
+			true if the Task Number is valid, false otherwise
+	*/
+
+	return manager.Find(number) != -1
 }
