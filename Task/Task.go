@@ -14,7 +14,7 @@ func (t Task) String() string {
 	// Initialize the status string
 	var status string
 
-	if t.Status == true {
+	if t.Status {
 		status = "Complete"
 	} else {
 		status = "Pending..."

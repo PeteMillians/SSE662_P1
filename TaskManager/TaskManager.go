@@ -7,7 +7,19 @@ import (
 const HELP_MENU = "Welcome to the Task Manager! Available commands are listed below: \n\tA: Add a task\n\tL: List all current tasks\n\tM: Mark a task as complete\n\tD: Delete a task\n\tH: Display the help menu\n\n*Note: These commands are case-sensitive"
 
 type TaskManager struct {
-	tasks []Task.Task
+	tasks  []Task.Task
+	number int
+}
+
+func (t TaskManager) GetSize() int {
+	/*
+		Gets the number of Tasks in the slice
+
+		Returns:
+			the int length of the tasks list
+	*/
+
+	return len(t.tasks)
 }
 
 func (t *TaskManager) Add(task Task.Task) {
@@ -19,8 +31,8 @@ func (t *TaskManager) Add(task Task.Task) {
 	*/
 
 	t.tasks = append(t.tasks, task)
-
 }
+
 func (t *TaskManager) List() []string {
 	/*
 		Returns a string array of Tasks in the slice
@@ -33,10 +45,10 @@ func (t *TaskManager) List() []string {
 	list := []string{}
 
 	// Iterate through each task
-	for i, _ := range t.tasks {
+	for _, task := range t.tasks {
 
 		// Add the __str__ implementation of the Task to the list
-		list = append(list, t.tasks[i].String())
+		list = append(list, task.String())
 	}
 
 	// Return the list
@@ -110,7 +122,7 @@ func (t TaskManager) find(number int) int {
 		if t.tasks[i].GetNumber() == number {
 
 			// If it is, return the index
-			return i
+			return i // Returns the next index because that is what is displayed in the list
 		}
 	}
 
