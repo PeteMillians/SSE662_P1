@@ -64,10 +64,10 @@ func (t *TaskManager) Mark(number int) {
 	*/
 
 	// Find the index of the requested number
-	index := t.find(number)
+	index := t.Find(number)
 
 	// if index == -1 {
-	// 	err := errors.New("Could not find Task at given number")
+	// 	err := errors.New("Could not Find Task at given number")
 	// }
 
 	// Set the status of that index to true
@@ -84,10 +84,10 @@ func (t *TaskManager) Delete(number int) {
 	*/
 
 	// Find the index of the requested number
-	index := t.find(number)
+	index := t.Find(number)
 
 	// if index == -1 {
-	// 	err := errors.New("Could not find Task at given number")
+	// 	err := errors.New("Could not Find Task at given number")
 	// }
 
 	// Append each side of the index
@@ -105,7 +105,7 @@ func (t *TaskManager) Help() string {
 	return HELP_MENU
 }
 
-func (t TaskManager) find(number int) int {
+func (t TaskManager) Find(number int) int {
 	/*
 		Finds the index of a task number in the Tasks slice
 
@@ -126,6 +126,6 @@ func (t TaskManager) find(number int) int {
 		}
 	}
 
-	// Could not find the task, so return an invalid index
+	// Could not Find the task, so return an invalid index
 	return -1
 }
