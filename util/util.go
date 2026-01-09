@@ -66,20 +66,13 @@ func processCommand(input string, manager *taskManager.TaskManager) {
 		fmt.Println("------")
 
 		// Prints the list of the available Tasks
-		for _, str := range manager.List() {
-
-			// Print the task
-			fmt.Println(str)
-		}
+		printTasks(manager)
 
 	case "M":
 
 		// Print the available tasks
 		fmt.Println("Available Tasks to mark: ")
-		for _, str := range manager.List() {
-			fmt.Println(str)
-		}
-
+		printTasks(manager)
 		fmt.Println()
 
 		// Take input for the Task we are marking
@@ -92,10 +85,7 @@ func processCommand(input string, manager *taskManager.TaskManager) {
 
 		// Print the available tasks
 		fmt.Println("Available Tasks to delete: ")
-		for _, str := range manager.List() {
-			fmt.Println(str)
-		}
-
+		printTasks(manager)
 		fmt.Println()
 
 		// Take input for the Task we are deleting
@@ -164,4 +154,17 @@ func clearScreen() {
 	*/
 
 	fmt.Print("\033[H\033[2J")
+}
+
+func printTasks(manager *taskManager.TaskManager) {
+	/*
+		Prints a pretty list of all current Tasks
+
+		Arguments:
+			manager (TaskManager): the current TaskManager storing the Tasks
+	*/
+
+	for _, str := range manager.List() {
+		fmt.Println(str)
+	}
 }
