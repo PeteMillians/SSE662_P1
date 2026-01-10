@@ -119,3 +119,17 @@ func TestFind(t *testing.T) {
 		}
 	}
 }
+
+func TestUpdate(t *testing.T) {
+	var manager TaskManager = createTaskManager()
+
+	number := rand.Intn(4) + 1 // Delete from somewhere that is not the last index
+
+	index := manager.Find(number)
+
+	manager.Delete(index)
+
+	if manager.Find(number) == -1 {
+		t.Errorf("Expected to find a task here still")
+	}
+}
