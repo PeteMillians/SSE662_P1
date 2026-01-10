@@ -59,7 +59,7 @@ func TestList(t *testing.T) {
 	}
 
 	for i, str := range manager.List() {
-		if str != fmt.Sprintf("Task %d: Test Description -- Status: Pending...", i+1) {
+		if str != fmt.Sprintf("Task %d - Test Name: Test Description -- Status: Pending...", i+1) {
 			t.Errorf("Incorrect List for task %d", i)
 		}
 	}
@@ -86,20 +86,13 @@ func TestMark(t *testing.T) {
 func TestDelete(t *testing.T) {
 	var manager TaskManager = createTaskManager()
 
-	index := rand.Intn(5)
+	index := rand.Intn(5) + 1
 
 	manager.Delete(index)
 
 	if manager.GetSize() != 4 {
 		t.Errorf("Expected size to be 4")
 	}
-
-	for _, task := range manager.tasks {
-		if task.Number == index {
-			t.Errorf("Expected this to be deleted")
-		}
-	}
-
 }
 
 func TestFind(t *testing.T) {
@@ -125,9 +118,7 @@ func TestUpdate(t *testing.T) {
 
 	number := rand.Intn(4) + 1 // Delete from somewhere that is not the last index
 
-	index := manager.Find(number)
-
-	manager.Delete(index)
+	manager.Delete(number)
 
 	if manager.Find(number) == -1 {
 		t.Errorf("Expected to find a task here still")

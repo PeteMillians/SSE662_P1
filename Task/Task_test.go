@@ -36,7 +36,7 @@ func TestCreateTask(t *testing.T) {
 func TestString(t *testing.T) {
 	var task Task = createTestTask()
 
-	if task.String() != "Task 1: Test Description -- Status: Pending..." {
+	if task.String() != "Task 1 - Test Name: Test Description -- Status: Pending..." {
 		t.Errorf("Incorrect String() method")
 	}
 
