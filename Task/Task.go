@@ -21,7 +21,7 @@ func (t Task) String() string {
 	}
 
 	// Return the formatted Task string
-	return fmt.Sprintf("Task %d: %s -- Status: %s", t.Number, t.Description, status)
+	return fmt.Sprintf("Task %d - %s: %s -- Status: %s", t.Number, t.Name, t.Description, status)
 }
 
 func (t Task) GetName() string {
