@@ -86,12 +86,11 @@ func (t *TaskManager) Delete(number int) {
 	// Find the index of the requested number
 	index := t.Find(number)
 
-	// if index == -1 {
-	// 	err := errors.New("Could not Find Task at given number")
-	// }
-
 	// Append each side of the index
 	t.tasks = append(t.tasks[:index], t.tasks[index+1:]...)
+
+	// Update the order of the tasks
+	t.Update()
 }
 
 func (t *TaskManager) Help() string {
@@ -128,4 +127,18 @@ func (t TaskManager) Find(number int) int {
 
 	// Could not Find the task, so return an invalid index
 	return -1
+}
+
+func (t *TaskManager) Update() {
+	/*
+		Updates the task numbers of all Tasks in the slice to be ordered 1-N with no skips
+	*/
+
+	// Iterate through each task in list
+	for i, _ := range t.tasks {
+
+		// Set task number to the updated number
+		t.tasks[i].SetNumber(i + 1)
+	}
+
 }
