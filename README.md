@@ -17,7 +17,7 @@ C:/Users/myname/.../SSE662_P1>
 Now that the terminal is at the correct location, simply run the following command to initialize the Go module:
 
 ```
-go mod init
+go mod init SSE662_P1
 ```
 
 A file named **go.mod** should have been created, which gives the Go interpreter the module information. Now, to run the To-Do List Manager, run the following command:
