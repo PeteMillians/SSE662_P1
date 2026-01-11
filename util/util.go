@@ -10,11 +10,12 @@ import (
 )
 
 func CommandLine(manager *taskManager.TaskManager) {
+	/*
+		Starts the loop to run the command-line interface
 
-	// Starts the loop to run the command-line interface
-
-	// Arguments:
-	//     manager (TaskManager): the TaskManager instance which controls the list of Tasks
+		Arguments:
+			manager (TaskManager): the TaskManager instance which controls the list of Tasks
+	*/
 
 	// Iterate until a break
 	for {
